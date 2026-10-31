@@ -61,3 +61,51 @@ En las siguientes fases será necesario comprobar:
 - Persistencia de reservas activas y canceladas entre reinicios.
 
 Todos los resultados futuros deberán registrarse con el comando ejecutado, resultado esperado, resultado observado y estado real. No se considerarán aprobadas pruebas que todavía no fueron ejecutadas.
+
+## Verificación humana — Fase 2 (31/10/2026)
+
+**Objetivo:** verificar el funcionamiento de SQLite, la persistencia de reservas y la detección de conflictos entre horarios.
+
+**Entorno utilizado:**
+- Sistema operativo: Windows.
+- Python: 3.13.7.
+- Agente: OpenCode 2.0.10.
+- Commit de partida: `39a9dd1`.
+
+**Comando ejecutado manualmente:**
+
+`py -3.13 -m unittest discover -s tests -v`
+
+**Resultado observado:**
+
+```text
+Ran 67 tests in 0.513s
+
+OK
+```
+
+Se ejecutaron correctamente 67 pruebas automáticas, incluyendo las 44 de la Fase 1 y 23 nuevas correspondientes a la Fase 2.
+
+### Funcionalidades verificadas
+
+- Detección de reservas superpuestas.
+- Aceptación de horarios consecutivos.
+- Reservas simultáneas de unidades diferentes.
+- Reservas canceladas que no bloquean horarios.
+- Almacenamiento y recuperación de reservas mediante SQLite.
+- Conservación de datos al cerrar y reabrir la conexión.
+- Rechazo de identificadores duplicados.
+
+### Verificación del repositorio
+
+Se ejecutaron `git status` y `git diff --stat`.
+
+Se identificaron cuatro archivos nuevos:
+- `reservas/db.py`
+- `reservas/repositorio.py`
+- `tests/test_conflictos.py`
+- `tests/test_repositorio.py`
+
+**Resultado de la revisión humana:** se aceptan los resultados de las pruebas ejecutadas. Queda pendiente la integración del servicio y una revisión completa del código fuente.
+
+**Estado:** aprobado en las pruebas ejecutadas.

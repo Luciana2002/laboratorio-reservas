@@ -19,13 +19,28 @@
 - **Decisión humana (aceptar/corregir/rechazar) y motivo:** aceptar el análisis y el plan incremental. Decisiones aceptadas: (1) base SQLite en `data/reservas.db`; (2) formato estricto `AAAA-MM-DD HH:MM`; (3) hora local de Argentina, documentando limitaciones; (4) IDs de unidad exactos y sensibles a mayúsculas; (5) menú interactivo; (6) auditoría `creada_en` y `cancelada_en`; (7) reinicio de datos posterior con confirmación y advertencia; (8) dominio en español; (9) solo biblioteca estándar de Python 3.13. Además, se autorizó implementar únicamente la Fase 1 y ejecutar `py -3.13 -m unittest discover -s tests -v`.
 - **Evidencia enlazada:** commit inicial `4ee5936`; este registro; el análisis se realizó en la sesión de OpenCode. No hay pruebas ni verificación de implementación en este episodio.
 
-## Episodio 2 — Pendiente
+## Episodio 2 — Implementación de SQLite y detección de conflictos
 
-- Objetivo/requisito:
-- Contexto suministrado y extracto de instrucción:
-- Acción o resultado real del agente:
-- Decisión humana (aceptar/corregir/rechazar) y motivo:
-- Evidencia enlazada (archivo, commit, prueba, resultado):
+**Objetivo:** implementar el almacenamiento persistente de reservas y la detección de superposiciones.
+
+**Contexto suministrado:** repositorio en el commit `39a9dd1`, especificación inicial y código aprobado de la Fase 1.
+
+**Instrucciones al agente:** crear la capa de persistencia SQLite y las pruebas correspondientes, utilizando consultas parametrizadas, transacciones e intervalos semiabiertos. No modificar la especificación ni realizar commits.
+
+**Resultado de OpenCode:** creación de cuatro archivos y ejecución de 67 pruebas, todas aprobadas.
+
+**Decisión humana:** aceptar provisionalmente la implementación, después de ejecutar independientemente las 67 pruebas automáticas y comprobar que no se produjeron errores. Queda pendiente la revisión completa del código.
+
+**Evidencia verificable:**
+- `reservas/db.py`
+- `reservas/repositorio.py`
+- `tests/test_conflictos.py`
+- `tests/test_repositorio.py`
+- `docs/verificaciones.md`
+
+**Versión de partida:** `39a9dd1`.
+
+**Versión con la implementación:** completar con el commit correspondiente a la Fase 2.
 
 ## Episodio 3 — Pendiente
 
@@ -34,3 +49,4 @@
 - Acción o resultado real del agente:
 - Decisión humana (aceptar/corregir/rechazar) y motivo:
 - Evidencia enlazada (archivo, commit, prueba, resultado):
+
