@@ -346,7 +346,7 @@ Se observaron los siguientes cambios:
 - No se modificó código, pruebas, `AGENTS.md` ni inventario.
 - No se realizó commit ni push.
 - No se probó manualmente el reinicio destructivo sobre la base real; solo está cubierto por pruebas con bases temporales.
-- No se ejecutó un clon limpio desde cero para validar el procedimiento del README.
+- En esta revisión no se ejecutó un clon limpio desde cero. Se ejecutó después, el 31/10/2026, y su resultado está en «Verificación de reproducibilidad desde un clon limpio»: 99 pruebas `OK` en `1.426s`, inicio de la aplicación y visualización de los cinco equipos.
 
 **Estado:** cambios documentales pendientes de revisión humana.
 

@@ -191,5 +191,5 @@ Por eso `10:00–11:00` y `11:00–12:00` no conflictúan. La regla se comparte 
 - No se identificó ni transcribió una configuración personalizada de permisos.
 - La revisión humana línea por línea del código sigue pendiente; la Etapa 5 releyó el código para contrastar la documentación, sin reemplazar esa revisión.
 - El reinicio de datos se probó con bases temporales en la suite, no manualmente sobre la base real.
-- No se ejecutó un clon limpio desde cero en la Etapa 5; el procedimiento del README se documenta, pero no se verificó en un directorio recién clonado.
+- El clon limpio se verificó después de la revisión de la Etapa 5: desde una carpeta nueva, `git clone`, 99 pruebas `OK` en `1.426s`, inicio de la aplicación y visualización de los cinco equipos. El procedimiento consta en [`docs/verificaciones.md`](verificaciones.md#verificación-de-reproducibilidad-desde-un-clon-limpio--31102026); el archivo crudo no se conservó (ver [`docs/evidencias/README.md`](evidencias/README.md)).
 - No se conservan archivos crudos de las ejecuciones de pruebas ni transcripciones de las sesiones manuales. [`docs/evidencias/README.md`](evidencias/README.md) propone qué archivos reales podrían adjuntarse y distingue lo disponible de lo pendiente.

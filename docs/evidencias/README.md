@@ -15,7 +15,7 @@ Esta carpeta está destinada a conservar **evidencia real** del proyecto. No con
 | `persistencia-activa.txt` | Transcripción de la sesión manual con la reserva activa `c144c33b-f463-4bb6-9443-86a3c4e6e5ee`. | `py -3.13 -m reservas` | Procedimiento y resultado en [`docs/verificaciones.md`](../verificaciones.md); transcripción cruda no conservada. |
 | `git-log.txt` | Salida de `git log --oneline --decorate` y de `git show --stat` para los seis commits. | `git log --oneline --decorate`; `git show --stat <commit>` | Reconstruible desde el repositorio; archivo no conservado. |
 | `reinicio-datos.txt` | Salida de una prueba de reinicio con base temporal. | `py -3.13 -m unittest discover -s tests -v` | Cubierto por pruebas automatizadas; no se ejecutó manualmente sobre la base real. |
-| `clon-limpio.txt` | Salida de clonar, ejecutar y probar desde un directorio nuevo. | `git clone https://github.com/Luciana2002/laboratorio-reservas.git`; `py -3.13 -m unittest discover -s tests -v` | **Pendiente de ejecutar y adjuntar.** |
+| `clon-limpio.txt` | Salida de clonar, ejecutar y probar desde un directorio nuevo. | `git clone https://github.com/Luciana2002/laboratorio-reservas.git`; `py -3.13 -m unittest discover -s tests -v`; `py -3.13 -m reservas` | **Procedimiento ejecutado y aprobado** sobre el commit `2c0869e`: 99 pruebas `OK` en `1.426s`, inicio de la aplicación y visualización de los cinco equipos (`MIC-01`, `MIC-02`, `OSC-01`, `MUL-01`, `FUE-01`). El detalle está en [`docs/verificaciones.md`](../verificaciones.md#verificación-de-reproducibilidad-desde-un-clon-limpio--31102026). **El archivo crudo `clon-limpio.txt` todavía no fue adjuntado.** |
 
 ## Criterios para incorporar archivos
 
