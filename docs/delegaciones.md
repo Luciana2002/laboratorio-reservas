@@ -65,3 +65,27 @@
 **Commit de implementación:** pendiente de registrar después de realizar el commit.
 
 **Limitaciones:** falta la interfaz de consola y la verificación de persistencia entre procesos independientes.
+
+## Episodio 4 — Implementación de la interfaz de consola
+
+**Objetivo:** desarrollar una interfaz interactiva que permita operar el sistema de reservas desde la terminal.
+
+**Contexto suministrado:** commit `e30b654`, especificación inicial, instrucciones de `AGENTS.md` y módulos implementados durante las fases anteriores.
+
+**Instrucciones al agente:** implementar un menú interactivo con inventario, disponibilidad, creación, cancelación, historial y reinicio de datos. Reutilizar la lógica del servicio, incorporar pruebas y no realizar commits.
+
+**Resultado del agente:** creó `reservas/cli.py`, `reservas/__main__.py` y `tests/test_cli.py`. Reportó 99 pruebas aprobadas, incluidas 15 nuevas correspondientes a la interfaz.
+
+**Verificación humana:** se ejecutó independientemente la suite de 99 pruebas, con resultado satisfactorio. También se comprobó manualmente la creación de reservas, el rechazo de conflictos, la cancelación y la persistencia de estados activos y cancelados entre reinicios de la aplicación.
+
+**Decisión humana:** aceptar la Fase 4 en función de los resultados obtenidos. Se mantiene pendiente una revisión completa del código y de la documentación final.
+
+**Evidencia:**
+- `reservas/cli.py`
+- `reservas/__main__.py`
+- `tests/test_cli.py`
+- `docs/verificaciones.md`
+
+**Commit de partida:** `e30b654`.
+
+**Commit de implementación:** pendiente de registrar después del commit de esta fase.
