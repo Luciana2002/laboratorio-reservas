@@ -109,3 +109,55 @@ Se identificaron cuatro archivos nuevos:
 **Resultado de la revisión humana:** se aceptan los resultados de las pruebas ejecutadas. Queda pendiente la integración del servicio y una revisión completa del código fuente.
 
 **Estado:** aprobado en las pruebas ejecutadas.
+
+## Verificación humana — Fase 3 (31/10/2026)
+
+**Objetivo:** comprobar las funcionalidades de creación, disponibilidad, cancelación e historial de reservas.
+
+**Entorno utilizado:**
+- Sistema operativo: Windows.
+- Python: 3.13.7.
+- Agente: OpenCode 2.0.10.
+- Commit de partida: `b4de875`.
+
+**Comando ejecutado manualmente:**
+
+`py -3.13 -m unittest discover -s tests -v`
+
+**Resultado observado:**
+
+```text
+Ran 84 tests in 0.913s
+
+OK
+```
+
+Se ejecutaron correctamente 84 pruebas automáticas, incluidas las 67 anteriores y 17 nuevas.
+
+### Funcionalidades comprobadas
+
+- Creación de reservas válidas con UUID.
+- Rechazo de unidades inexistentes y solicitantes inválidos.
+- Validación de fechas y horarios.
+- Rechazo de reservas superpuestas.
+- Aceptación de horarios consecutivos y equipos diferentes.
+- Consulta de disponibilidad antes y después de reservar.
+- Cancelación conservando los datos originales.
+- Liberación del horario después de cancelar.
+- Historial de reservas activas y canceladas.
+- Persistencia al cerrar y reabrir una conexión SQLite.
+
+### Verificación del repositorio
+
+Se ejecutaron `git status` y `git diff --stat`.
+
+Archivos identificados:
+- `reservas/servicio.py` (nuevo).
+- `tests/test_servicio.py` (nuevo).
+- `reservas/repositorio.py` (modificado).
+
+**Decisión humana:** aceptar los resultados de la Fase 3 porque las 84 pruebas ejecutadas finalizaron sin errores.
+
+**Limitaciones:** todavía no se verificó el funcionamiento de la aplicación mediante una interfaz de consola ni su persistencia entre procesos independientes.
+
+**Estado:** aprobado en las pruebas ejecutadas.

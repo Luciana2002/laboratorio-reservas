@@ -42,11 +42,26 @@
 
 **Versión con la implementación:** completar con el commit correspondiente a la Fase 2.
 
-## Episodio 3 — Pendiente
+## Episodio 3 — Implementación del servicio de reservas
 
-- Objetivo/requisito:
-- Contexto suministrado y extracto de instrucción:
-- Acción o resultado real del agente:
-- Decisión humana (aceptar/corregir/rechazar) y motivo:
-- Evidencia enlazada (archivo, commit, prueba, resultado):
+**Objetivo y requisitos:** implementar la creación de reservas, consulta de disponibilidad, cancelación e historial, cumpliendo las reglas del sistema.
 
+**Contexto suministrado:** repositorio en el commit `b4de875`, documentación inicial, instrucciones de `AGENTS.md` y funcionalidades aprobadas de las Fases 1 y 2.
+
+**Instrucciones al agente:** implementar `reservas/servicio.py`, incorporar la operación de cancelación en el repositorio y crear pruebas automáticas. Reutilizar las validaciones existentes, no instalar dependencias y no realizar commits.
+
+**Resultado del agente:** creó dos archivos y modificó uno. Reportó 84 pruebas aprobadas, incluidas 17 nuevas.
+
+**Decisión humana:** aceptar los resultados de la implementación después de ejecutar independientemente las 84 pruebas y comprobar que finalizaron correctamente. La inspección completa del código queda pendiente.
+
+**Evidencia verificable:**
+- `reservas/servicio.py`
+- `reservas/repositorio.py`
+- `tests/test_servicio.py`
+- `docs/verificaciones.md`
+
+**Commit de partida:** `b4de875`.
+
+**Commit de implementación:** pendiente de registrar después de realizar el commit.
+
+**Limitaciones:** falta la interfaz de consola y la verificación de persistencia entre procesos independientes.

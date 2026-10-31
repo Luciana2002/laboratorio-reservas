@@ -90,6 +90,36 @@ def insertar_reserva(conexion: sqlite3.Connection, reserva: Reserva) -> None:
         ) from exc
 
 
+def marcar_cancelada(
+    conexion: sqlite3.Connection,
+    reserva_id: str,
+    cancelada_en: datetime,
+) -> bool:
+    """Marca una reserva activa como cancelada sin borrar ni alterar otros campos.
+
+    Devuelve ``True`` si actualizó una fila y ``False`` si no encontró una
+    reserva activa con ese ID. No hace commit: el llamador controla la
+    transacción.
+    """
+    if not isinstance(cancelada_en, datetime):
+        raise TypeError("La fecha de cancelación debe ser un datetime.")
+
+    cursor = conexion.execute(
+        """
+        UPDATE reservas
+        SET estado = ?, cancelada_en = ?
+        WHERE id = ? AND estado = ?
+        """,
+        (
+            EstadoReserva.CANCELADA.value,
+            _formatear_auditoria(cancelada_en),
+            reserva_id,
+            EstadoReserva.ACTIVA.value,
+        ),
+    )
+    return cursor.rowcount == 1
+
+
 def obtener_reserva(
     conexion: sqlite3.Connection,
     reserva_id: str,
